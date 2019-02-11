@@ -11,16 +11,12 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      books: ''
+      books: []
     }
   }
 
   componentDidMount() {
     this.getBooks();
-  }
-
-  handleChanges = e => {
-    this.setState({ [e.target.name]: e.target.value });
   }
 
   getBooks = () => {
@@ -49,7 +45,6 @@ class App extends Component {
           render={props => (
             <Login
               {...props}
-              handleChanges={this.handleChanges}
             />
           )}  
         />
@@ -58,7 +53,6 @@ class App extends Component {
           render={props => (
             <Register
               {...props}
-              handleChanges={this.handleChanges}
             />
           )}
         />

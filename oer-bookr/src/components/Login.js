@@ -11,6 +11,10 @@ class Login extends React.Component {
         };
     }
 
+    handleChanges = e => {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
     handleLogin = e => {
         e.preventDefault();
         const endpoint =
@@ -40,7 +44,7 @@ class Login extends React.Component {
                             placeholder='Username'
                             name='username'
                             value={this.state.username}
-                            onChange={this.props.handleChanges}
+                            onChange={this.handleChanges}
                             required
                         />
                         <input 
@@ -48,7 +52,7 @@ class Login extends React.Component {
                             placeholder='Password'
                             name='password'
                             value={this.state.password}
-                            onChange={this.props.handleChanges}
+                            onChange={this.handleChanges}
                             required
                         />
                         <button onClick={this.handleLogin}>Login</button>

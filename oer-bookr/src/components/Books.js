@@ -1,5 +1,7 @@
 import React from 'react';
 
+import BookList from './BookList';
+
 class Books extends React.Component {
     constructor(props) {
         super(props);
@@ -7,7 +9,7 @@ class Books extends React.Component {
 
     render() {
         return (
-            <h1>I'm the Book Page!</h1>
+            <BookList books={this.props.books} />
         );
     }
 }

@@ -10,6 +10,10 @@ class Register extends React.Component {
         };
     }
 
+    handleChanges = e => {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
     handleRegister = e => {
         e.preventDefault();
         const endpoint =
@@ -39,7 +43,7 @@ class Register extends React.Component {
                             placeholder='Username'
                             name='username'
                             value={this.state.username}
-                            onChange={this.props.handleChanges}
+                            onChange={this.handleChanges}
                             required
                         />
                         <input 
@@ -47,7 +51,7 @@ class Register extends React.Component {
                             placeholder='Password'
                             name='password'
                             value={this.state.password}
-                            onChange={this.props.handleChanges}
+                            onChange={this.handleChanges}
                             required
                         />
                         <button onClick={this.handleRegister}>Register</button>
