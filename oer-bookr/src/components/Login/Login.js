@@ -9,5 +9,27 @@ class Login extends React.Component {
         };
     }
 
-    
+    render() {
+        return (
+            <div>
+                <form>
+                    <input 
+                        type='text'
+                        placeholder='Username'
+                        name='username'
+                        required
+                    />
+                    <input 
+                        type='text'
+                        placeholder='Password'
+                        name='password'
+                        required
+                    />
+                    <button>Login</button>
+                </form>
+            </div>
+        );
+    }
 }
+
+export default Login;
