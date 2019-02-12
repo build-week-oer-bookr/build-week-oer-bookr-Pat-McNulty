@@ -6,12 +6,13 @@ import './App.css';
 import Login from './components/Login';
 import Register from './components/Register';
 import Books from './components/Books';
+import SingleBook from './components/SingleBook';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      books: []
+      books: [],
     }
   }
 
@@ -56,10 +57,20 @@ class App extends Component {
             />
           )}
         />
-        <Route 
+        <Route
+          exact 
           path='/books'
           render={props => (
             <Books
+              {...props}
+              books={this.state.books}
+            />
+          )}
+        />
+        <Route 
+          path='/books/:id'
+          render={props => (
+            <SingleBook
               {...props}
               books={this.state.books}
             />
