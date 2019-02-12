@@ -7,12 +7,22 @@ class SingleBook extends React.Component {
     constructor() {
         super();
         this.state = {
-            reviews: []
+            books: [],
+            reviews: [],
+            reviewData: '',
+            reviewer: '',
+            id: '',
+            book_id: '',
+            rating: ''
         }
     }
 
     componentDidMount() {
         this.getReviews();
+    }
+
+    handleChanges = e => {
+        this.setState({ [e.target.name]: e.target.value });
     }
 
     getReviews = () => {
@@ -32,6 +42,19 @@ class SingleBook extends React.Component {
           });
       }
 
+    addReview = e => {
+        e.preventDefault();
+        this.setState({
+            reviews: [...this.state.reviews,
+                {
+                reviewer: 'username',
+                review: this.state.reviewData,
+                }
+            ],
+            reviewData: ''
+        })
+    }
+
     render() {
         const book = this.props.books.find(
             book => `${book.id}` === this.props.match.params.id
@@ -50,13 +73,23 @@ class SingleBook extends React.Component {
                 <a href={book.link}>Link to Book</a>
                 {filteredReviews.map(review => {
                     return (
-                        <div>
+                        <div key={review.id}>
                             <p>{review.rating}</p>
                             <p>{review.review}</p>
                             <p>{review.reviewer}</p>
                         </div>
                     )
                 })}
+                <form>
+                    <input
+                        type='review'
+                        placeholder='Add a review'
+                        value={this.state.reviewData}
+                        name='reviewData'
+                        onChange={this.handleChanges}
+                    />
+                </form>
+                <button onClick={this.addReview}>Add Review</button>
                 <button>Delete</button>
             </div>
          );
