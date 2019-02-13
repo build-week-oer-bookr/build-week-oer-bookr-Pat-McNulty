@@ -11,8 +11,8 @@ class SingleBook extends React.Component {
             reviews: [],
             singleReview: {
                review: '',
-               reviewer: 'Pat',
-               rating: 1,
+               reviewer: '',
+               rating: null,
                book_id: null
             }
         }
@@ -30,6 +30,20 @@ class SingleBook extends React.Component {
       e.preventDefault();      
       let singleReview = {...this.state.singleReview}
       singleReview.review = e.target.value
+      this.setState({singleReview})
+    }
+
+    handleRatingChanges = e => {
+      e.preventDefault();      
+      let singleReview = {...this.state.singleReview}
+      singleReview.rating = e.target.value
+      this.setState({singleReview})
+    }
+
+    handleReviewerChanges = e => {
+      e.preventDefault();      
+      let singleReview = {...this.state.singleReview}
+      singleReview.reviewer = e.target.value
       this.setState({singleReview})
     }
 
@@ -97,6 +111,20 @@ class SingleBook extends React.Component {
                         value={this.state.singleReview.review}
                         name='review'
                         onChange={this.handleReviewChanges}
+                    />
+                    <input
+                        type='text'
+                        placeholder='Add a rating'
+                        value={this.state.singleReview.rating}
+                        name='rating'
+                        onChange={this.handleRatingChanges}
+                    />
+                    <input
+                        type='text'
+                        placeholder='Username'
+                        value={this.state.singleReview.reviewer}
+                        name='reviewer'
+                        onChange={this.handleReviewerChanges}
                     />
                 </form>
                 <button onClick={this.addReview}>Add Review</button>
