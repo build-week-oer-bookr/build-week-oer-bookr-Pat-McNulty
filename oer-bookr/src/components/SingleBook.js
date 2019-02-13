@@ -10,7 +10,7 @@ class SingleBook extends React.Component {
             books: [],
             reviews: [],
             singleReview: {
-               review: 'Review',
+               review: '',
                reviewer: 'Pat',
                rating: 1,
                book_id: null
@@ -26,8 +26,11 @@ class SingleBook extends React.Component {
     }
 
 
-    handleChanges = e => {
-        this.setState({ [e.target.name]: {...this.state[e.target.name], value: e.target.value},});
+    handleReviewChanges = e => {
+      e.preventDefault();      
+      let singleReview = {...this.state.singleReview}
+      singleReview.review = e.target.value
+      this.setState({singleReview})
     }
 
     getReviews = () => {
@@ -91,9 +94,9 @@ class SingleBook extends React.Component {
                     <input
                         type='text'
                         placeholder='Add a review'
-                        value={this.state.review}
+                        value={this.state.singleReview.review}
                         name='review'
-                        onChange={this.handleChanges}
+                        onChange={this.handleReviewChanges}
                     />
                 </form>
                 <button onClick={this.addReview}>Add Review</button>
