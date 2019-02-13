@@ -26,7 +26,7 @@ class Register extends React.Component {
             .then(res => {
                 console.log(res.data);
                 localStorage.setItem("jwt", res.data.token);
-                this.props.history.push("/login");
+                this.props.history.push("/");
             })
             .catch(err => {
                 this.setState({ errorMessage: err.response.data.message });
