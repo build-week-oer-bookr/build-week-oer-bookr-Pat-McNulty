@@ -6,7 +6,7 @@
   margin: 0 auto;
   width: 100%;
   height: 100%;
-  background-color: lightgrey;
+  background-color: #F0FFFF;
 }
 
 .bookCardContainer {
@@ -22,8 +22,14 @@
   height: 475px;
   width: 250px;
   margin: 0 15px 25px 15px;
-  border: 1px solid lightgrey;
   background-color: white;
+  text-decoration: none;
+  color: black;
+  box-shadow: 2px 2px 2px 2px #888888;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .bookCard h2 {
@@ -47,4 +53,9 @@
   font-weight: normal;
   font-size: 16px;
   margin: 0;
+}
+
+.bookCard i {
+  align-self: flex-end;
+  margin: 0 5px 5px 0;
 }
