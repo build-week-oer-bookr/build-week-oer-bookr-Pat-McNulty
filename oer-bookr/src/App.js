@@ -7,7 +7,6 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Books from './components/Books';
 import SingleBook from './components/SingleBook';
-import ReviewSection from './components/ReviewSection';
 
 class App extends Component {
   constructor(props) {
@@ -39,6 +38,19 @@ class App extends Component {
       });
   };
 
+  deleteBook = (e, id) => {
+    e.preventDefault();
+    const endpoint =
+      `https://oer-bookr-api.herokuapp.com/books/${id}`;
+    axios
+      .delete(endpoint)
+      .then(res => {
+        console.log(res);
+        this.getBooks();
+      })
+      .catch(err => err.data)
+  }
+
   render() {
     return (
       <div className="App">
@@ -65,6 +77,7 @@ class App extends Component {
             <Books
               {...props}
               books={this.state.books}
+              deleteBook={this.deleteBook}
             />
           )}
         />
@@ -75,15 +88,6 @@ class App extends Component {
             <SingleBook
               {...props}
               books={this.state.books}
-              reviews={this.state.reviews}
-            />
-          )}
-        />
-        <Route
-          path='/books/reviews/:id'
-          render={props => (
-            <ReviewSection
-              {...props}
               reviews={this.state.reviews}
             />
           )}

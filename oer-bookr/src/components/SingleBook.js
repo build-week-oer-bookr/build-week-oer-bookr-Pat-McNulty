@@ -1,8 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 
-import ReviewSection from './ReviewSection';
-
 class SingleBook extends React.Component {
     constructor() {
         super();
@@ -24,7 +22,6 @@ class SingleBook extends React.Component {
         singleReview.book_id = Number(this.props.match.params.id);
         this.setState({singleReview})
     }
-
 
     handleReviewChanges = e => {
       e.preventDefault();      
@@ -80,16 +77,16 @@ class SingleBook extends React.Component {
     }
 
     deleteReview = (e, id) => {
-      e.preventDefault();
-      const endpoint =
+        e.preventDefault();
+        const endpoint =
           `https://oer-bookr-api.herokuapp.com/reviews/${id}`;
-      axios
-        .delete(endpoint)
-        .then(res => {
-          console.log(res);
-          this.getReviews();
-        })
-        .catch( err => err.data)
+        axios
+          .delete(endpoint)
+          .then(res => {
+            console.log(res);
+            this.getReviews();
+          })
+          .catch( err => err.data)
     }
 
     render() {

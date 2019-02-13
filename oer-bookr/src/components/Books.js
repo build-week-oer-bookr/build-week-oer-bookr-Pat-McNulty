@@ -9,7 +9,7 @@ class Books extends React.Component {
 
     render() {
         return (
-            <BookList books={this.props.books} />
+            <BookList books={this.props.books} deleteBook={this.props.deleteBook} />
         );
     }
 }

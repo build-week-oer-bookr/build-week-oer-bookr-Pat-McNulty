@@ -13,6 +13,7 @@ function BookList(props) {
                         <img src={book.image} alt='book-image' />
                         <h3>{book.title}</h3>
                         <h4>{book.author}</h4>
+                        <i onClick={e => props.deleteBook(e, book.id)} class="far fa-trash-alt"></i>
                     </NavLink>
                 );
             })}
