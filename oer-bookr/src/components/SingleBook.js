@@ -10,10 +10,13 @@ class SingleBook extends React.Component {
             books: [],
             reviews: [],
             reviewData: '',
-            reviewer: '',
-            id: '',
-            book_id: '',
-            rating: ''
+            review: {
+               review: '',
+               reviewer: '',
+               rating: 1,
+               id: 1,
+               book_id: 1
+            }
         }
     }
 
@@ -42,17 +45,20 @@ class SingleBook extends React.Component {
           });
       }
 
-    addReview = e => {
+    addReview = (e) => {
         e.preventDefault();
-        this.setState({
-            reviews: [...this.state.reviews,
-                {
-                reviewer: 'username',
-                review: this.state.reviewData,
-                }
-            ],
-            reviewData: ''
-        })
+        const endpoint =
+          `https://oer-bookr-api.herokuapp.com/reviews`;
+        axios
+          .post(endpoint, this.state.review)
+          .then(res => {
+            this.setState({
+                reviews: res.data
+            })
+          })
+          .catch(err => {
+            this.setState({ errorMessage: err.response.data.message });
+          });
     }
 
     render() {
