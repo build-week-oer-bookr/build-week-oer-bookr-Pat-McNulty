@@ -9,23 +9,25 @@ class SingleBook extends React.Component {
         this.state = {
             books: [],
             reviews: [],
-            reviewData: '',
-            review: {
-               review: '',
-               reviewer: '',
+            singleReview: {
+               review: 'Review',
+               reviewer: 'Pat',
                rating: 1,
-               id: 1,
-               book_id: 1
+               book_id: null
             }
         }
     }
 
     componentDidMount() {
         this.getReviews();
+        let singleReview = {...this.state.singleReview}
+        singleReview.book_id = Number(this.props.match.params.id);
+        this.setState({singleReview})
     }
 
+
     handleChanges = e => {
-        this.setState({ [e.target.name]: e.target.value });
+        this.setState({ [e.target.name]: {...this.state[e.target.name], value: e.target.value},});
     }
 
     getReviews = () => {
@@ -50,11 +52,10 @@ class SingleBook extends React.Component {
         const endpoint =
           `https://oer-bookr-api.herokuapp.com/reviews`;
         axios
-          .post(endpoint, this.state.review)
+          .post(endpoint, this.state.singleReview)
           .then(res => {
-            this.setState({
-                reviews: res.data
-            })
+            console.log(res);
+            this.getReviews();
           })
           .catch(err => {
             this.setState({ errorMessage: err.response.data.message });
@@ -88,15 +89,14 @@ class SingleBook extends React.Component {
                 })}
                 <form>
                     <input
-                        type='review'
+                        type='text'
                         placeholder='Add a review'
-                        value={this.state.reviewData}
-                        name='reviewData'
+                        value={this.state.review}
+                        name='review'
                         onChange={this.handleChanges}
                     />
                 </form>
                 <button onClick={this.addReview}>Add Review</button>
-                <button>Delete</button>
             </div>
          );
     }
