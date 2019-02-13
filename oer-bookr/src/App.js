@@ -7,18 +7,25 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Books from './components/Books';
 import SingleBook from './components/SingleBook';
+import NavBar from './components/NavBar';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       books: [],
+      searchInput: '',
+      filteredCards: []
     }
   }
 
   componentDidMount() {
     this.getBooks();
   }
+
+  // handleChanges = (e) => {
+  //   this.setState({ [e.target.name]: e.target.value })
+  // }
 
   getBooks = () => {
     const endpoint =
@@ -51,11 +58,27 @@ class App extends Component {
       .catch(err => err.data)
   }
 
+  // searchFilter = e => {
+  //   e.preventDefault();
+  //   const filteredCards = this.state.books.filter( book => {
+  //     if (book.subject.includes(this.state.searchInput)) {
+  //       return book;
+  //     }
+  //     return null;
+  //   });
+  //   this.setState({
+  //     filteredCards
+  //   })
+  // }
+
   render() {
     return (
       <div className="App">
+        <NavBar />
+        <div>
         <Route 
-          path='/login'
+          exact
+          path='/'
           render={props => (
             <Login
               {...props}
@@ -78,6 +101,10 @@ class App extends Component {
               {...props}
               books={this.state.books}
               deleteBook={this.deleteBook}
+              // searchInput={this.state.searchInput}
+              // searchFilter={this.searchFilter}
+              // handleChanges={this.handleChanges}
+              // filteredCards={this.state.filteredCards}
             />
           )}
         />
@@ -92,6 +119,7 @@ class App extends Component {
             />
           )}
         />
+        </div>
       </div>
     );
   }

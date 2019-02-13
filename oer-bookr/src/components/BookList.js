@@ -4,6 +4,12 @@ import { NavLink } from 'react-router-dom';
 import '../App.css';
 
 function BookList(props) {
+    // let books = [];
+    // if (props.filteredCards.length > 0) {
+    //     books = props.filteredCards
+    // } else {
+    //     books = props.books
+    // }
     return (
         <div className='bookCardContainer'>
             {props.books.map((book) => {
