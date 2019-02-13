@@ -1,6 +1,7 @@
 import React from 'react';
 
 import BookList from './BookList';
+import NavBar from './NavBar';
 
 class Books extends React.Component {
     constructor(props) {
@@ -9,7 +10,10 @@ class Books extends React.Component {
 
     render() {
         return (
-            <BookList books={this.props.books} deleteBook={this.props.deleteBook} />
+            <div className='bookListCont'>
+                <NavBar />
+                <BookList books={this.props.books} deleteBook={this.props.deleteBook} />
+            </div>
         );
     }
 }

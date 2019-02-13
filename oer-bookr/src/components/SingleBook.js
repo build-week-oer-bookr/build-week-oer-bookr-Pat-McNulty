@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import NavBar from './NavBar';
+
 class SingleBook extends React.Component {
     constructor() {
         super();
@@ -97,7 +99,9 @@ class SingleBook extends React.Component {
         const filteredReviews = this.state.reviews.filter(review => review.book_id === book.id);
         console.log(filteredReviews)
         return (
-            <div>
+            <div className='singleBookCont'>
+              <NavBar />
+              <div>
                 <h2>{book.subject}</h2>
                 <img src={book.image} alt='book-image' />
                 <h3>{book.title}</h3>
@@ -139,6 +143,7 @@ class SingleBook extends React.Component {
                     />
                 </form>
                 <button onClick={this.addReview}>Add Review</button>
+              </div>
             </div>
          );
     }
