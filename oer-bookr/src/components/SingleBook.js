@@ -79,6 +79,19 @@ class SingleBook extends React.Component {
           });
     }
 
+    deleteReview = (e, id) => {
+      e.preventDefault();
+      const endpoint =
+          `https://oer-bookr-api.herokuapp.com/reviews/${id}`;
+      axios
+        .delete(endpoint)
+        .then(res => {
+          console.log(res);
+          this.getReviews();
+        })
+        .catch( err => err.data)
+    }
+
     render() {
         const book = this.props.books.find(
             book => `${book.id}` === this.props.match.params.id
@@ -97,10 +110,11 @@ class SingleBook extends React.Component {
                 <a href={book.link}>Link to Book</a>
                 {filteredReviews.map(review => {
                     return (
-                        <div key={review.id}>
+                        <div>
                             <p>{review.rating}</p>
                             <p>{review.review}</p>
                             <p>{review.reviewer}</p>
+                            <i onClick={e => this.deleteReview(e, review.id)} class="far fa-trash-alt"></i>
                         </div>
                     )
                 })}
