@@ -23,10 +23,6 @@ class App extends Component {
     this.getBooks();
   }
 
-  // handleChanges = (e) => {
-  //   this.setState({ [e.target.name]: e.target.value })
-  // }
-
   getBooks = () => {
     const endpoint =
       'https://oer-bookr-api.herokuapp.com/books';
@@ -58,19 +54,6 @@ class App extends Component {
       .catch(err => err.data)
   }
 
-  // searchFilter = e => {
-  //   e.preventDefault();
-  //   const filteredCards = this.state.books.filter( book => {
-  //     if (book.subject.includes(this.state.searchInput)) {
-  //       return book;
-  //     }
-  //     return null;
-  //   });
-  //   this.setState({
-  //     filteredCards
-  //   })
-  // }
-
   render() {
     return (
       <div className="App">
@@ -101,10 +84,8 @@ class App extends Component {
               {...props}
               books={this.state.books}
               deleteBook={this.deleteBook}
-              // searchInput={this.state.searchInput}
-              // searchFilter={this.searchFilter}
-              // handleChanges={this.handleChanges}
-              // filteredCards={this.state.filteredCards}
+              handleOpen={this.handleOpen}
+              handleClose={this.handleClose}
             />
           )}
         />

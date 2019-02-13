@@ -143,3 +143,4 @@ class SingleBook extends React.Component {
 }
 
 export default SingleBook;
+

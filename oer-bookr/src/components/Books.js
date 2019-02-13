@@ -10,19 +10,11 @@ class Books extends React.Component {
     render() {
         return (
             <div>
-            {/* //     <form onSubmit={ e => this.props.searchFilter(e)}>
-            //         <input 
-            //             type='search bar'
-            //             placeholder='Find a subject'
-            //             name='searchInput'
-            //             value={this.props.searchInput}
-            //             onChange={this.props.handleChanges}
-            //         />
-            //     </form> */}
                 <BookList 
                     books={this.props.books} 
                     deleteBook={this.props.deleteBook} 
-                    // filteredCards={this.props.filteredCards}
+                    handleClose={this.props.handleClose}
+                    handleOpen={this.props.handleOpen}
                 />
             </div>
         );

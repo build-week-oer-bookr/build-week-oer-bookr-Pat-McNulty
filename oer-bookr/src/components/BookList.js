@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import '../App.css';
+import SimpleModalWrapped from './DeleteModal';
 
 function BookList(props) {
     // let books = [];
