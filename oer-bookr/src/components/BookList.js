@@ -28,5 +28,3 @@ function BookList(props) {
 }
 
 export default BookList;
-
-{/* <i onClick={e => props.deleteBook(e, book.id)} class="far fa-trash-alt"></i> */}

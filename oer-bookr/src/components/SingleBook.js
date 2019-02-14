@@ -7,6 +7,7 @@ class SingleBook extends React.Component {
         this.state = {
             books: [],
             reviews: [],
+            isUpdating: false,
             singleReview: {
                review: '',
                reviewer: '',
@@ -89,6 +90,40 @@ class SingleBook extends React.Component {
           .catch( err => err.data)
     }
 
+    editReview = (e) => {
+      e.preventDefault();
+      const endpoint =
+        `https://oer-bookr-api.herokuapp.com/reviews/${id}`;
+      const id = this.props.match.params.id;
+      const newReview = {
+        review: this.state.singleReview.review,
+        reviewer: this.state.singleReview.reviewer,
+        rating: this.state.singleReview.rating
+      };
+      axios
+        .put(endpoint, newReview)
+        .then(res => {
+          console.log(res.data);
+          this.getReviews();
+          this.setState({
+            singleReview:  {
+              review: '',
+              reviewer: '',
+              rating: ''
+            }
+          })
+        })
+        .catch(err => console.log(err))
+    }
+
+    populateForm = (e, id) => {
+      e.preventDefault();
+      this.setState({
+        singleReview: this.state.reviews.find(review => review.book_id === id),
+        isUpdating: true
+      });
+    }
+
     render() {
         const book = this.props.books.find(
             book => `${book.id}` === this.props.match.params.id
@@ -109,6 +144,9 @@ class SingleBook extends React.Component {
                             <p>{review.rating}</p>
                             <p>{review.review}</p>
                             <p>{review.reviewer}</p>
+                            <button onClick={e => this.populateForm(e, review.book_id)}>
+                              Edit Review
+                            </button>
                             <i onClick={e => this.deleteReview(e, review.id)} class="far fa-trash-alt"></i>
                         </div>
                     )
@@ -137,6 +175,7 @@ class SingleBook extends React.Component {
                     />
                 </form>
                 <button onClick={this.addReview}>Add Review</button>
+                <button onClick={this.editReview}>Edit Review</button>
             </div>
          );
     }

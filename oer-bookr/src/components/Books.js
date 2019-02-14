@@ -13,8 +13,6 @@ class Books extends React.Component {
                 <BookList 
                     books={this.props.books} 
                     deleteBook={this.props.deleteBook} 
-                    handleClose={this.props.handleClose}
-                    handleOpen={this.props.handleOpen}
                 />
             </div>
         );

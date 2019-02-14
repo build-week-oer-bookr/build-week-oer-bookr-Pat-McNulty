@@ -45,5 +45,3 @@ const Modal = ({ handleClose, show, children }) => {
 };
 
 export default DeleteModal;
-
-{/* <i onClick={e => props.deleteBook(e, book.id)} class="far fa-trash-alt"></i> */}
