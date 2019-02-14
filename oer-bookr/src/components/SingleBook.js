@@ -92,9 +92,9 @@ class SingleBook extends React.Component {
 
     editReview = (e) => {
       e.preventDefault();
+      const id = this.props.match.params.id;
       const endpoint =
         `https://oer-bookr-api.herokuapp.com/reviews/${id}`;
-      const id = this.props.match.params.id;
       const newReview = {
         review: this.state.singleReview.review,
         reviewer: this.state.singleReview.reviewer,
@@ -132,7 +132,7 @@ class SingleBook extends React.Component {
         return (
             <div className='singleBookCont'>
                 <h2>{book.subject}</h2>
-                <img src={book.image} alt='book-image' />
+                <img src={book.image} alt='book' />
                 <h3>{book.title}</h3>
                 <h4>{book.author}</h4>
                 <h5>{book.publisher}</h5>

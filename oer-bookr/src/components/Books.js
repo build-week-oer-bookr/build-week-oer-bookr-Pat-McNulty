@@ -2,21 +2,16 @@ import React from 'react';
 
 import BookList from './BookList';
 
-class Books extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+function Books(props) {
 
-    render() {
-        return (
-            <div>
-                <BookList 
-                    books={this.props.books} 
-                    deleteBook={this.props.deleteBook} 
-                />
-            </div>
-        );
-    }
+    return (
+        <div>
+            <BookList 
+                books={props.books} 
+                deleteBook={props.deleteBook} 
+            />
+        </div>
+    );
 }
 
 export default Books;

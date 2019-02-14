@@ -12,7 +12,7 @@ function BookList(props) {
                     <div className='bookCard' key={book.id}>
                         <h2>{book.subject}</h2>
                         <NavLink to={`/books/${book.id}`}>
-                            <img src={book.image} alt='book-image' />
+                            <img src={book.image} alt='book' />
                         </NavLink>
                         <h3>{book.title}</h3>
                         <h4>{book.author}</h4>
