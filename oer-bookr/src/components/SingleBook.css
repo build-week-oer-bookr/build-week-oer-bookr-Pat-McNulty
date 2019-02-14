@@ -1,0 +1,147 @@
+.singleBookCont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 1400px;
+    background-color: rgba(240,255,255, 1);
+}
+
+.singleBookCont .bookDescription {
+    border-top: 3px solid lightgrey;
+    border-bottom: 3px solid lightgrey;
+    width: 1400px;
+    height: 250px;
+    margin: 25px 0 0 0;
+    background-color: white;
+}
+
+.singleBookCont img {
+    margin: 75px 0 0 0;
+    height: 500px;
+    width: 350px;
+}
+
+.singleBookCont h3 {
+    font-size: 35px;
+    font-weight: bold;
+    text-decoration: underline;
+    margin: 35px 0 20px 0
+}
+
+.singleBookCont h4 {
+    font-size: 20px;
+    font-style: italic;
+    margin: 15px 0 0 0;
+}
+
+.bookDescriptionBot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 15px 0 15px;
+}
+
+.bookDescriptionBot h5 {
+    font-size: 18px;
+    color: grey;
+    margin: 5px 0 0 0;
+}
+
+.bookDescriptionBot a {
+    font-size: 18px;
+    color: forestgreen;
+    margin: 5px 0 0 0;
+    text-decoration: none;
+}
+
+.bookDescriptionBot a:hover {
+    color: grey;
+}
+
+.reviewsCont {
+    border-top: 3px solid lightgrey;
+    border-bottom: 3px solid lightgrey;
+    width: 1400px;
+    height: 100%;
+    margin: 50px 0;
+    padding: 25px 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reviewsCont h7 {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 1200px 0 0;
+}
+
+.reviewCont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid lightgrey;
+    height: 100%;
+    width: 1000px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-radius: 4px;
+}
+
+.reviewCont .reviewContTop {
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+    margin: 10px 700px 0 0;
+}
+
+.reviewCont .reviewContTop p {
+    font-weight: bold;
+    margin: 15px 0 0 0;
+}
+
+.reviewCont .review {
+    width: 800px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.reviewCont .reviewContBot {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 800px;
+    margin-left: 200px;
+}
+
+.reviewCont .reviewContBot button {
+    margin: 0 25px 0 0;
+    background-color: slategrey;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.reviewCont .reviewContBot button:hover {
+    background-color: white;
+    color: slategrey;
+    border: 1px solid slategrey;
+}
+
+.reviewCont .reviewContBot i{
+    margin: 0 15px 0 0;
+}
+
+.singleBookCont .formCont {
+    border-top: 3px solid lightgrey;
+    border-bottom: 3px solid lightgrey;
+    width: 1400px;
+    height: 100%;
+    padding: 25px 0;
+    background-color: white;
+}
+
+

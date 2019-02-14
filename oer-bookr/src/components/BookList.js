@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import '../App.css';
+import './BookList.css';
 import DeleteModal from './DeleteModal';
 
 function BookList(props) {

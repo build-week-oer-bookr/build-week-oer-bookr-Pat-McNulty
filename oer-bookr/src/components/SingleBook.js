@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import './SingleBook.css';
+
 class SingleBook extends React.Component {
     constructor() {
         super();
@@ -92,7 +94,8 @@ class SingleBook extends React.Component {
 
     editReview = (e) => {
       e.preventDefault();
-      const id = this.props.match.params.id;
+      const id = this.props.match.params.review.book_id;
+      console.log(id);
       const endpoint =
         `https://oer-bookr-api.herokuapp.com/reviews/${id}`;
       const newReview = {
@@ -131,51 +134,64 @@ class SingleBook extends React.Component {
         const filteredReviews = this.state.reviews.filter(review => review.book_id === book.id);
         return (
             <div className='singleBookCont'>
-                <h2>{book.subject}</h2>
                 <img src={book.image} alt='book' />
-                <h3>{book.title}</h3>
-                <h4>{book.author}</h4>
-                <h5>{book.publisher}</h5>
-                <h6>{book.license}</h6>
-                <a href={book.link}>Link to Book</a>
+                <div className='bookDescription'>
+                  <h3>{book.title}</h3>
+                  <h4>by {book.author}</h4>
+                  <h6>Publisher: {book.publisher}</h6>
+                  <h6>License: {book.license}</h6>
+                  <div className='bookDescriptionBot'>
+                    <h5>Subject: {book.subject}</h5>
+                    <a href={book.link}>Get this Book!</a>
+                  </div>
+                </div>
+                <div className='reviewsCont'>
+                <h7>Reviews</h7>
                 {filteredReviews.map(review => {
                     return (
-                        <div>
-                            <p>{review.rating}</p>
-                            <p>{review.review}</p>
-                            <p>{review.reviewer}</p>
-                            <button onClick={e => this.populateForm(e, review.book_id)}>
-                              Edit Review
-                            </button>
-                            <i onClick={e => this.deleteReview(e, review.id)} class="far fa-trash-alt"></i>
+                        <div className='reviewCont'>
+                          <div className='reviewContTop'>
+                            <p>User: {review.reviewer}</p>
+                            <p>Rating: {review.rating}</p>
+                          </div>
+                            <p className='review'>{review.review}</p>
+                            <div className='reviewContBot'>
+                              <button onClick={e => this.populateForm(e, review.book_id)}>
+                                Edit Review
+                              </button>
+                              <i onClick={e => this.deleteReview(e, review.id)} class="far fa-trash-alt"></i>
+                            </div>
                         </div>
                     )
                 })}
-                <form>
-                    <input
+                </div>
+                <div className='formCont'>
+                  <form>
+                      <input
                         type='text'
                         placeholder='Add a review'
                         value={this.state.singleReview.review}
                         name='review'
                         onChange={this.handleReviewChanges}
-                    />
-                    <input
+                      />
+                      <input
                         type='text'
                         placeholder='Add a rating'
                         value={this.state.singleReview.rating}
                         name='rating'
                         onChange={this.handleRatingChanges}
-                    />
-                    <input
+                      />
+                      <input
                         type='text'
                         placeholder='Username'
                         value={this.state.singleReview.reviewer}
                         name='reviewer'
                         onChange={this.handleReviewerChanges}
-                    />
-                </form>
+                      />
+                  </form>
                 <button onClick={this.addReview}>Add Review</button>
                 <button onClick={this.editReview}>Edit Review</button>
+                </div>
             </div>
          );
     }
