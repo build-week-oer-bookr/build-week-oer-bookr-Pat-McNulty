@@ -94,7 +94,8 @@ class SingleBook extends React.Component {
 
     editReview = (e) => {
       e.preventDefault();
-      const id = this.props.match.params.review.book_id;
+      if (!this.state.singleReview.id) return alert('Please click on a review to edit');
+      const id = this.state.singleReview.id;
       console.log(id);
       const endpoint =
         `https://oer-bookr-api.herokuapp.com/reviews/${id}`;
@@ -121,8 +122,9 @@ class SingleBook extends React.Component {
 
     populateForm = (e, id) => {
       e.preventDefault();
+      console.log(e);
       this.setState({
-        singleReview: this.state.reviews.find(review => review.book_id === id),
+        singleReview: this.state.reviews.find(review => review.id === id),
         isUpdating: true
       });
     }
@@ -156,7 +158,7 @@ class SingleBook extends React.Component {
                           </div>
                             <p className='review'>{review.review}</p>
                             <div className='reviewContBot'>
-                              <button onClick={e => this.populateForm(e, review.book_id)}>
+                              <button onClick={e => this.populateForm(e, review.id)}>
                                 Edit Review
                               </button>
                               <i onClick={e => this.deleteReview(e, review.id)} class="far fa-trash-alt"></i>
