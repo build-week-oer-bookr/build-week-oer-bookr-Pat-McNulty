@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+import './Login.css';
+
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -37,9 +39,11 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div>
                 <div className='loginFormCont'>
                     <div className='loginForm'>
+                        <div className='headerCont'>
+                            <h1>Welcome to OER Bookr</h1>
+                        </div>
                         <input 
                             type='text'
                             placeholder='Username'
@@ -57,10 +61,12 @@ class Login extends React.Component {
                             required
                         />
                         <button onClick={this.handleLogin}>Login</button>
-                        <Link to='/register'>Don't have an account? Click here</Link>
+                        <div className='noAccount'>
+                            <p>Don't have an account?</p>
+                            <Link to='/register'>Click here</Link>
+                        </div>
                     </div>
                 </div>
-            </div>
         );
     }
 }

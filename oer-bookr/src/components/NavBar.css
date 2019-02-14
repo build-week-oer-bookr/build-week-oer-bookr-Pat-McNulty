@@ -5,13 +5,13 @@
     justify-content: space-between;
     align-items: center;
     background-color: slategrey;
+    z-index: 1;
 }
 
 .navBarCont h1 {
     color: white;
     margin: 0 0 0 50px;
     font-size: 40px;
-    font-family: 'Arial Narrow Bold', sans-serif;
     font-weight: bold;
 }
 

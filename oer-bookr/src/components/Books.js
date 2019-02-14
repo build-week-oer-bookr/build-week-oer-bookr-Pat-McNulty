@@ -6,6 +6,7 @@ function Books(props) {
 
     return (
         <div>
+            <h2 className='bookHeader'>Books</h2>
             <BookList 
                 books={props.books} 
                 deleteBook={props.deleteBook} 
