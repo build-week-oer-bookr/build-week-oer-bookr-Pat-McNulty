@@ -125,7 +125,6 @@ class SingleBook extends React.Component {
       console.log(e);
       this.setState({
         singleReview: this.state.reviews.find(review => review.id === id),
-        isUpdating: true
       });
     }
 
@@ -168,31 +167,40 @@ class SingleBook extends React.Component {
                 })}
                 </div>
                 <div className='formCont'>
+                  <h8>Add a Review</h8>
                   <form>
+                    <div className='formLeft'>
                       <input
-                        type='text'
-                        placeholder='Add a review'
-                        value={this.state.singleReview.review}
-                        name='review'
-                        onChange={this.handleReviewChanges}
-                      />
-                      <input
-                        type='text'
-                        placeholder='Add a rating'
-                        value={this.state.singleReview.rating}
-                        name='rating'
-                        onChange={this.handleRatingChanges}
-                      />
-                      <input
+                        className='usernameInput'
                         type='text'
                         placeholder='Username'
                         value={this.state.singleReview.reviewer}
                         name='reviewer'
                         onChange={this.handleReviewerChanges}
                       />
-                  </form>
-                <button onClick={this.addReview}>Add Review</button>
-                <button onClick={this.editReview}>Edit Review</button>
+                      <input
+                        className='ratingInput'
+                        type='text'
+                        placeholder='Add a rating 1-5'
+                        value={this.state.singleReview.rating}
+                        name='rating'
+                        onChange={this.handleRatingChanges}
+                      />
+                    </div>
+                    <div className='reviewInput'>
+                      <input
+                        type='text'
+                        placeholder='Add a review...'
+                        value={this.state.singleReview.review}
+                        name='review'
+                        onChange={this.handleReviewChanges}
+                      />
+                      </div>
+                    </form>
+                    <div className='formButtons'>
+                      <button onClick={this.addReview}>Add Review</button>
+                      <button onClick={this.editReview}>Edit Review</button>
+                    </div>
                 </div>
             </div>
          );

@@ -1,8 +1,10 @@
 .loginFormCont {
     display: flex;
     justify-content: center;
-    margin: 100px 0 0 0;
-    background-color: #F0FFFF; 
+    margin: 200px 0 0 0;
+    background-color: #F0FFFF;
+    height: 1100px;
+    background-image: url('http://cohoctonlibrary.org/wp-content/uploads/2014/06/Bookshelves-Background.jpg');
 }
 
 .loginFormCont .loginForm {
