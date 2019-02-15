@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import './Register.css';
+
 class Register extends React.Component {
     constructor(props) {
         super(props);
@@ -36,8 +38,11 @@ class Register extends React.Component {
     render() {
         return (
             <div>
-                <div className='loginFormCont'>
-                    <div className='loginForm'>
+                <div className='registerFormCont'>
+                    <div className='registerForm'>
+                        <div className='headerCont'>
+                            <h1>Sign Up</h1>
+                        </div>
                         <input 
                             type='text'
                             placeholder='Username'
