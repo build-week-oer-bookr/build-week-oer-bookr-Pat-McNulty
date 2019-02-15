@@ -17,7 +17,7 @@
 }
 
 .singleBookCont img {
-    margin: 75px 0 0 0;
+    margin: 75px 0 25px 0;
     height: 500px;
     width: 350px;
 }
@@ -159,6 +159,8 @@
     height: 20px;
     padding-bottom: 200px;
     padding-left: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
 }
 
 .singleBookCont .formCont .formLeft input {
@@ -166,6 +168,8 @@
     height: 20px;
     padding-left: 10px;
     margin: 0 10px 15px 0px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
 }
 
 .singleBookCont .formCont h8 {
@@ -180,7 +184,19 @@
 }
 
 .singleBookCont .formCont .formButtons button {
-    margin: 10px 0 15px 0;
+    margin: 10px 15px 0px 0;
+    height: 25px;
+    width: 100px;
+    border: none;
+    border-radius: 6px;
+    background-color: slategray;
+    color: white;
+}
+
+.singleBookCont .formCont .formButtons button:hover {
+   color: slategray;
+   background-color: white;
+   border: 1px solid slategray;
 }
 
 
