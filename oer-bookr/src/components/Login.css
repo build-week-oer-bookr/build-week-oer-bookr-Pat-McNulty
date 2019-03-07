@@ -1,0 +1,67 @@
+.loginFormCont {
+    display: flex;
+    justify-content: center;
+    margin: 200px 0 0 0;
+    background-color: #F0FFFF;
+    height: 1100px;
+    background-image: url('http://cohoctonlibrary.org/wp-content/uploads/2014/06/Bookshelves-Background.jpg');
+}
+
+.loginFormCont .loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid grey;
+    border-radius: 6px;
+    width: 500px;
+    height: 375px;
+    background-color: white;
+}
+
+.loginFormCont .loginForm .headerCont {
+    background-color: slategray;
+    padding: 25px 0;
+    width: 500px;
+    margin-bottom: 35px;
+}
+
+.loginFormCont .loginForm .headerCont h1 {
+    margin: 0;
+    color: white;
+}
+
+.loginFormCont .loginForm input {
+    width: 400px;
+    height: 40px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid slategray;
+    margin-bottom: 25px;
+}
+
+.loginFormCont .loginForm button {
+    height: 30px;
+    width: 100px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    background-color: gray;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+
+.loginFormCont .loginForm button:hover {
+    color: gray;
+    background-color: white;
+    border: 1px solid gray;
+}
+
+.loginFormCont .loginForm .noAccount {
+    display: flex;
+    align-items: center;
+}
+
+.loginFormCont .loginForm .noAccount p {
+    margin-right: 10px;
+}
