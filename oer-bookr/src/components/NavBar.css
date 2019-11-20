@@ -10,8 +10,8 @@
 
 .navBarCont h1 {
     color: white;
-    margin: 0 0 0 50px;
-    font-size: 40px;
+    margin: 5px 0 5px 50px;
+    font-size: 45px;
     font-weight: bold;
 }
 
@@ -25,18 +25,18 @@
 .navBarCont .linkCont a {
     color: white;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
 
 .navBarCont .linkCont a:hover {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .navBarCont .linkCont a:visited {
     color: white;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
 
